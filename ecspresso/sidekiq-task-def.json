@@ -1,0 +1,133 @@
+{
+  "containerDefinitions": [
+    {
+      "command": [
+        "bundle",
+        "exec",
+        "sidekiq"
+      ],
+      "cpu": 0,
+      "environment": [
+        {
+          "name": "S3_BUCKET",
+          "value": "media-mastodon"
+        },
+        {
+          "name": "LOCAL_DOMAIN",
+          "value": "mastodon.example.com"
+        },
+        {
+          "name": "REDIS_HOST",
+          "value": "mastodon.waqlpw.ng.0001.apne1.cache.amazonaws.com"
+        },
+        {
+          "name": "S3_REGION",
+          "value": "ap-northeast-1"
+        },
+        {
+          "name": "DB_PORT",
+          "value": "5432"
+        },
+        {
+          "name": "DB_USER",
+          "value": "postgres"
+        },
+        {
+          "name": "DB_NAME",
+          "value": "mastodon"
+        },
+        {
+          "name": "SMTP_LOGIN",
+          "value": "FOO"
+        },
+        {
+          "name": "VAPID_PRIVATE_KEY",
+          "value": "O0tKi4sq5zWtVqDyokRCOhzgzY-KHHOY9KP5EBv70w0="
+        },
+        {
+          "name": "DB_HOST",
+          "value": "mastodon.chcbyiaszqza.ap-northeast-1.rds.amazonaws.com"
+        },
+        {
+          "name": "SMTP_FROM_ADDRESS",
+          "value": "notifications@example.com"
+        },
+        {
+          "name": "LOCAL_HTTPS",
+          "value": "false"
+        },
+        {
+          "name": "SMTP_PORT",
+          "value": "25"
+        },
+        {
+          "name": "REDIS_PORT",
+          "value": "6379"
+        },
+        {
+          "name": "DB_PASS",
+          "value": "postgres"
+        },
+        {
+          "name": "SMTP_SERVER",
+          "value": "email-smtp.us-east-1.amazonaws.com"
+        },
+        {
+          "name": "SMTP_PASSWORD",
+          "value": "BAR"
+        },
+        {
+          "name": "VAPID_PUBLIC_KEY",
+          "value": "BLKOjUQXl9r1ouEUJ_DAef1_DwoKICaj6V0OJMIp4IaDrFfX8t4gdLZH9fg7XkSsMdkip8jtxy-bKwEmSaetrD0="
+        },
+        {
+          "name": "SINGLE_USER_MODE",
+          "value": "true"
+        },
+        {
+          "name": "SECRET_KEY_BASE",
+          "value": "8322ecc0b8a1ba1c55ea470e2e0a2d9bb7cfb3a28db019791189f911f2993fa6385d8450f8e0556e498caa792c35277e670ffa37b185361a40b28dbd7212a188"
+        },
+        {
+          "name": "OTP_SECRET",
+          "value": "9ba349bb1e199c4b22610fd63377aa51c79ad0c7cebba89f55df89544044066ad02c91b4fe643b378a6a95b71c8981e752edb101bbb35488ad7a2837a61379db"
+        },
+        {
+          "name": "S3_ENABLED",
+          "value": "true"
+        }
+      ],
+      "essential": true,
+      "image": "048225877211.dkr.ecr.ap-northeast-1.amazonaws.com/mastodon:latest",
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/task-mastodon-sidekiq",
+          "awslogs-region": "ap-northeast-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "mountPoints": [],
+      "name": "sidekiq",
+      "portMappings": [],
+      "volumesFrom": []
+    }
+  ],
+  "cpu": "1024",
+  "executionRoleArn": "arn:aws:iam::048225877211:role/ecsTaskExecutionRole",
+  "family": "task-mastodon-sidekiq",
+  "memory": "4096",
+  "networkMode": "awsvpc",
+  "placementConstraints": [],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "tags": [
+    {
+      "key": "Name",
+      "value": "sidekiq"
+    }
+  ],
+  "taskRoleArn": "arn:aws:iam::048225877211:role/ecsTaskRole",
+  "volumes": []
+}

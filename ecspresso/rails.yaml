@@ -1,0 +1,6 @@
+region: ap-northeast-1
+cluster: cluster-mastodon
+service: service-mastodon-rails
+service_definition: rails-service-def.json
+task_definition: rails-task-def.json
+timeout: 10m0s

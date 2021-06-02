@@ -1,0 +1,6 @@
+region: ap-northeast-1
+cluster: cluster-mastodon
+service: service-mastodon-sidekiq
+service_definition: sidekiq-service-def.json
+task_definition: sidekiq-task-def.json
+timeout: 10m0s
